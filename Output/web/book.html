@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="Autor: Ing. Cristian Bernal" />
+    <meta name="date" content="09/01/2015"/>
+    <meta name="generator" content="easybook 5.0-DEV"/>
+
+    <title>Bases de datos para aplicaciones</title>
+
+    <link rel="stylesheet" href="./css/easybook.css" />
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="row">
+    <div class="span12">
+    <div class="item cover">
+    <h1>Bases de datos para aplicaciones</h1>
+    <h2>Autor: Ing. Cristian Bernal</h2>
+</div>    </div>
+    <div class="span9">
+        <div class="item chapter">
+    <h1 id="consola-de-mysql"><span>Capítulo 1</span> Consola de MySQL</h1>
+    <p>La consola de MySQL sirve para gestionar la base datos por línea de comandos.</p>
+
+<p>Si usas el entorno de prueba XAMPP, la consola se encuentra en el siguiente directorio:
+C:\xampp\mysql\lib</p>
+
+<h2 id="conectar-con-el-servidor-mysql">1.1 Conectar con el servidor MySQL</h2>
+
+<pre><code>
+mysql -h localhost -u root -p
+</code></pre>
+
+<p><br /></p>
+
+<p>quit para cerrar la conexión con el servidor</p>
+
+<h2 id="comandos-basicos">1.2 Comandos básicos</h2>
+
+<p><b>SHOW databases;</b><br />
+Sirve para listar las bases de datos existentes en el servidor.</p>
+
+<p><b>USE nombre_base;</b><br />
+Sirve para seleccionar una tabla y poder trabajar con sus tablas.</p>
+
+<p><b>SHOW tables;</b><br />
+Sirve para listar las tablas de una base de datos.</p>
+
+<p><b>DESCRIBE nombre_tabla;</b><br />
+<b>SHOW COLUMNS FROM nombre_tabla;</b><br />
+Sirve para mostrar información de la tabla, campos que la componen, tipos de datos, etc.</p>
+
+</div>
+        <div class="item chapter">
+    <h1 id="lenguaje-de-definicion-de-datos"><span>Capítulo 2</span> Lenguaje de definición de datos</h1>
+    <p>Permite definir y describir los objetos de la base de datos, su estructura, relaciones y restricciones.</p>
+
+<h2 id="create">2.1 CREATE</h2>
+
+<p>Utilizado para crear nuevas tablas, stored procedures e índices.</p>
+
+<p><b>CREATE DATABASE nombre_tabla;</b><br />
+Comando que crea una nueva base de datos.</p>
+
+<p>Ejemplo:</p>
+
+<pre><code>
+CREATE DATABASE personas;    
+</code></pre>
+
+<p><b>CREATE TABLE nombre_tabla (<br />
+    nombre_columna1 descripción,<br />
+    nombre_columna2 descripción<br />
+);</b><br />
+Comando que crea una nueva tabla y su estructura.</p>
+
+<p>Ejemplo:</p>
+
+<pre><code>
+CREATE TABLE personas(
+id integer(10) NOT NULL AUTO_INCREMENT
+nombre varchar(60) NOT NULL,
+apellido varchar(60) NOT NULL,
+PRIMARY KEY(ID)
+);    
+</code></pre>
+
+<h2 id="drop">2.2 DROP</h2>
+
+<p><b>DROP TABLE nombre_tabla;</b></p>
+
+<p>Empleado para eliminar tablas, stored procedures e índices.</p>
+
+<h2 id="alter">2.3 ALTER</h2>
+
+<p>Utilizado para modificar las tablas agregando campos o cambiando la definición de los campos.</p>
+
+</div>
+        <div class="item chapter">
+    <h1 id="lenguaje-de-manipulacion-de-datos"><span>Capítulo 3</span> Lenguaje de manipulación de datos</h1>
+    <p>Permite el manejo y procesamiento del contenido de la base de datos.</p>
+
+<h2 id="insert">3.1 INSERT</h2>
+
+<p>Utilizado para cargar lotes de datos en la base de datos en una única operación.</p>
+
+<h2 id="select">3.2 SELECT</h2>
+
+<p>Utilizado para consultar registros de la base de datos que satisfagan un criterio determinado.</p>
+
+<h2 id="update">3.3 UPDATE</h2>
+
+<p>Utilizado para eliminar registros de una tabla de una base de datos.</p>
+
+<h2 id="delete">3.4 DELETE</h2>
+
+<p>Utilizado para modificar los valores de los campos y registros especificados.</p>
+
+</div>
+    </div>
+    <div class="span3">
+    <div class="item toc">
+
+<h1>Índice de contenidos</h1>
+
+<ul class="unstyled">
+            <li class="chapter level-1">
+            <span>Capítulo 1</span> <a href="#consola-de-mysql">Consola de MySQL</a>
+        </li>
+            <li class="chapter level-2">
+            <span>1.1</span> <a href="#conectar-con-el-servidor-mysql">Conectar con el servidor MySQL</a>
+        </li>
+            <li class="chapter level-2">
+            <span>1.2</span> <a href="#comandos-basicos">Comandos básicos</a>
+        </li>
+                <li class="chapter level-1">
+            <span>Capítulo 2</span> <a href="#lenguaje-de-definicion-de-datos">Lenguaje de definición de datos</a>
+        </li>
+            <li class="chapter level-2">
+            <span>2.1</span> <a href="#create">CREATE</a>
+        </li>
+            <li class="chapter level-2">
+            <span>2.2</span> <a href="#drop">DROP</a>
+        </li>
+            <li class="chapter level-2">
+            <span>2.3</span> <a href="#alter">ALTER</a>
+        </li>
+                <li class="chapter level-1">
+            <span>Capítulo 3</span> <a href="#lenguaje-de-manipulacion-de-datos">Lenguaje de manipulación de datos</a>
+        </li>
+            <li class="chapter level-2">
+            <span>3.1</span> <a href="#insert">INSERT</a>
+        </li>
+            <li class="chapter level-2">
+            <span>3.2</span> <a href="#select">SELECT</a>
+        </li>
+            <li class="chapter level-2">
+            <span>3.3</span> <a href="#update">UPDATE</a>
+        </li>
+            <li class="chapter level-2">
+            <span>3.4</span> <a href="#delete">DELETE</a>
+        </li>
+    </ul>
+
+</div>    </div>
+</div>
+</div>
+
+</body>
+</html>
