@@ -33,10 +33,37 @@ PRIMARY KEY(ID)
 
 ## DROP ##
 
-<b>DROP TABLE nombre_tabla;</b>
+<pre><code>
+DROP TABLE nombre_tabla;
+</code></pre>
 
 Empleado para eliminar tablas, stored procedures e índices.
 
-
 ## ALTER ##
 Utilizado para modificar las tablas agregando campos o cambiando la definición de los campos.
+
+### Para agregar una columna ###
+<pre><code>
+ALTER TABLE tabla_nombre
+ADD columna_nombre tipo_de_dato;
+</code></pre>
+
+### Para eliminar una columna ###
+<pre><code>
+ALTER TABLE tabla_nombre
+DROP COLUMN columna_nombre;
+</code></pre>
+
+### Para cambiar el nombre y el tipo de dato de una columna ###
+<pre><code>
+ALTER TABLE usuarios
+CHANGE nombre_columna nuevo_nombre_columna tipo_de_dato;
+</code></pre>
+
+## TRUNCATE ##
+Sirve para borrar y recrear una tabla completamente, es el equivalente a un DELETE FROM TABLE pero tiene sus diferencias.
+
+Ejemplo:
+<pre><code>
+TRUNCATE nombre_tabla:
+</code></pre>

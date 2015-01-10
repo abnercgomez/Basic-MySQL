@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="author" content="Autor: Ing. Cristian Bernal" />
-    <meta name="date" content="09/01/2015"/>
+    <meta name="date" content="10/01/2015"/>
     <meta name="generator" content="easybook 5.0-DEV"/>
 
     <title>Bases de datos para aplicaciones</title>
@@ -37,7 +37,11 @@ mysql -h localhost -u root -p
 
 <p><br /></p>
 
-<p>quit para cerrar la conexión con el servidor</p>
+<pre><code>
+quit
+</code></pre>
+
+<p>Cierra la conexión con el servidor</p>
 
 <h2 id="comandos-basicos">1.2 Comandos básicos</h2>
 
@@ -91,13 +95,46 @@ PRIMARY KEY(ID)
 
 <h2 id="drop">2.2 DROP</h2>
 
-<p><b>DROP TABLE nombre_tabla;</b></p>
+<pre><code>
+DROP TABLE nombre_tabla;
+</code></pre>
 
 <p>Empleado para eliminar tablas, stored procedures e índices.</p>
 
 <h2 id="alter">2.3 ALTER</h2>
 
 <p>Utilizado para modificar las tablas agregando campos o cambiando la definición de los campos.</p>
+
+<h3 id="para-agregar-una-columna">2.3.1 Para agregar una columna</h3>
+
+<pre><code>
+ALTER TABLE tabla_nombre
+ADD columna_nombre tipo_de_dato;
+</code></pre>
+
+<h3 id="para-eliminar-una-columna">2.3.2 Para eliminar una columna</h3>
+
+<pre><code>
+ALTER TABLE tabla_nombre
+DROP COLUMN columna_nombre;
+</code></pre>
+
+<h3 id="para-cambiar-el-nombre-y-el-tipo-de-dato-de-una-columna">2.3.3 Para cambiar el nombre y el tipo de dato de una columna</h3>
+
+<pre><code>
+ALTER TABLE usuarios
+CHANGE nombre_columna nuevo_nombre_columna tipo_de_dato;
+</code></pre>
+
+<h2 id="truncate">2.4 TRUNCATE</h2>
+
+<p>Sirve para borrar y recrear una tabla completamente, es el equivalente a un DELETE FROM TABLE pero tiene sus diferencias.</p>
+
+<p>Ejemplo:</p>
+
+<pre><code>
+TRUNCATE nombre_tabla:
+</code></pre>
 
 </div>
         <div class="item chapter">
@@ -106,7 +143,33 @@ PRIMARY KEY(ID)
 
 <h2 id="insert">3.1 INSERT</h2>
 
+<p>INSERT INTO table_name (column1,column2,column3,...)
+VALUES (value1,value2,value3,...);</p>
+
+<p>INSERT INTO table_name
+VALUES (value1,value2,value3,...);</p>
+
 <p>Utilizado para cargar lotes de datos en la base de datos en una única operación.</p>
+
+<p>Ejemplo especificando el nombre de la columna y su valor:</p>
+
+<pre><code>
+INSERT INTO personas(id, nombre, apellidos) values
+(null, "Nombre1", "Apellido1"),
+(null, "Nombre2", "Apellido2"),
+(null, "Nombre3", "Apellido3"),
+(null, "Nombre4", "Apellido4");
+</code></pre>
+
+<p>Ejemplo especificando solamente el valor de la columna:</p>
+
+<pre><code>
+INSERT INTO personas values
+(null, "Nombre1", "Apellido1"),
+(null, "Nombre2", "Apellido2"),
+(null, "Nombre3", "Apellido3"),
+(null, "Nombre4", "Apellido4");
+</code></pre>
 
 <h2 id="select">3.2 SELECT</h2>
 
@@ -114,11 +177,31 @@ PRIMARY KEY(ID)
 
 <h2 id="update">3.3 UPDATE</h2>
 
-<p>Utilizado para eliminar registros de una tabla de una base de datos.</p>
+<p>Utilizado para modificar los valores de los campos y registros especificados.</p>
+
+<p>UPDATE nombre_tabla
+SET colunna1=valor1,columna2=valo2,...
+WHERE nombre_columna=valor;</p>
+
+<p>Ejemplo:</p>
+
+<pre><code>
+UPDATE personas SET nombre="Juan", apellidos="Perez" WHERE id=1;
+</code></pre>
 
 <h2 id="delete">3.4 DELETE</h2>
 
-<p>Utilizado para modificar los valores de los campos y registros especificados.</p>
+<p>Utilizado para eliminar registros de una tabla de una base de datos.</p>
+
+<p>Sintaxis<br />
+DELETE FROM nombre_tabla
+WHERE nombre_columna=valor;</p>
+
+<p>Ejemplo:</p>
+
+<pre><code>
+DELETE FROM usuarios WHERE id=1; 
+</code></pre>
 
 </div>
     </div>
@@ -148,6 +231,9 @@ PRIMARY KEY(ID)
         </li>
             <li class="chapter level-2">
             <span>2.3</span> <a href="#alter">ALTER</a>
+        </li>
+            <li class="chapter level-2">
+            <span>2.4</span> <a href="#truncate">TRUNCATE</a>
         </li>
                 <li class="chapter level-1">
             <span>Capítulo 3</span> <a href="#lenguaje-de-manipulacion-de-datos">Lenguaje de manipulación de datos</a>
