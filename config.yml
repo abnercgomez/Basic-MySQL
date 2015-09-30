@@ -9,6 +9,7 @@ book:
 
     contents:
         # available content types: acknowledgement, afterword, appendix, author,
+        # CAmbio  colocado
         # chapter, conclusion, cover, dedication, edition, epilogue, foreword,
         # glossary, introduction, license, lof (list of figures), lot (list of
         # tables), part, preface, prologue, title, toc (table of contents)
